@@ -33,7 +33,7 @@
     "redux-immutable-state-invariant": "2.1.0",
     "style-loader": "^4.0.0",
     "webpack": "^5.0.0",
-    "webpack-cli": "^6.0.0",
+    "webpack-cli": "^7.2.3",
     "webpack-dev-server": "^5.0.0"
   },
   "engines": {
