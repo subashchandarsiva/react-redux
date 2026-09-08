@@ -9,7 +9,7 @@
     "start:api": "node tools/apiServer.js"
   },
   "dependencies": {
-    "bootstrap": "^4.6.2",
+    "bootstrap": "^5.3.8",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
