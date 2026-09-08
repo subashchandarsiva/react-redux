@@ -2,10 +2,11 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-process.env.NODE_ENV = "development";
-
-module.exports = {
-  mode: "development",
+module.exports = (_env, argv) => {
+  const mode = argv.mode || "development";
+  process.env.NODE_ENV = mode;
+  return {
+  mode,
   target: "web",
   devtool: "cheap-module-source-map",
   entry: "./src/index",
@@ -15,12 +16,9 @@ module.exports = {
     filename: "bundle.js"
   },
   devServer: {
-    stats: "minimal",
-    overlay: true,
+    host: "127.0.0.1",
+    client: { overlay: true },
     historyApiFallback: true,
-    disableHostCheck: true,
-    headers: { "Access-Control-Allow-Origin": "*" },
-    https: false
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -36,7 +34,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: ["babel-loader"]
       },
       {
         test: /(\.css)$/,
@@ -44,4 +42,5 @@ module.exports = {
       }
     ]
   }
+  };
 };
